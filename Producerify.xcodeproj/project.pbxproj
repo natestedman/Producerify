@@ -88,9 +88,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4363100E1C4458D200851F5E /* Producerify */ = {
+		4363100E1C4458D200851F5E /* Producerify-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 436310171C4458D200851F5E /* Build configuration list for PBXNativeTarget "Producerify" */;
+			buildConfigurationList = 436310171C4458D200851F5E /* Build configuration list for PBXNativeTarget "Producerify-OSX" */;
 			buildPhases = (
 				4363100A1C4458D200851F5E /* Sources */,
 				4363100B1C4458D200851F5E /* Frameworks */,
@@ -101,7 +101,7 @@
 			);
 			dependencies = (
 			);
-			name = Producerify;
+			name = "Producerify-OSX";
 			productName = Producerify;
 			productReference = 4363100F1C4458D200851F5E /* Producerify.framework */;
 			productType = "com.apple.product-type.framework";
@@ -132,7 +132,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4363100E1C4458D200851F5E /* Producerify */,
+				4363100E1C4458D200851F5E /* Producerify-OSX */,
 			);
 		};
 /* End PBXProject section */
@@ -264,7 +264,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.natestedman.Producerify;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Producerify;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -288,7 +288,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.natestedman.Producerify;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Producerify;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -305,7 +305,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		436310171C4458D200851F5E /* Build configuration list for PBXNativeTarget "Producerify" */ = {
+		436310171C4458D200851F5E /* Build configuration list for PBXNativeTarget "Producerify-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				436310181C4458D200851F5E /* Debug */,
