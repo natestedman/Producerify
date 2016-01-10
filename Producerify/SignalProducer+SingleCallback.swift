@@ -12,6 +12,8 @@ import ReactiveCocoa
 
 extension SignalProducer
 {
+    // MARK: - Single Callback Functions
+
     /**
      Converts a function taking a success/error callback into a signal producer.
 
