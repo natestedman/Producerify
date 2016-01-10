@@ -10,7 +10,8 @@
 		436310131C4458D200851F5E /* Producerify.h in Headers */ = {isa = PBXBuildFile; fileRef = 436310121C4458D200851F5E /* Producerify.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		436310211C445A2300851F5E /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4363101F1C445A2300851F5E /* ReactiveCocoa.framework */; };
 		436310221C445A2300851F5E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436310201C445A2300851F5E /* Result.framework */; };
-		436310241C445A6800851F5E /* Producerify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436310231C445A6800851F5E /* Producerify.swift */; };
+		436310241C445A6800851F5E /* SignalProducer+SingleCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436310231C445A6800851F5E /* SignalProducer+SingleCallback.swift */; };
+		436310261C4465F600851F5E /* SignalProducer+DoubleCallbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436310251C4465F600851F5E /* SignalProducer+DoubleCallbacks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,7 +20,8 @@
 		436310141C4458D200851F5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4363101F1C445A2300851F5E /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		436310201C445A2300851F5E /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
-		436310231C445A6800851F5E /* Producerify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Producerify.swift; sourceTree = "<group>"; };
+		436310231C445A6800851F5E /* SignalProducer+SingleCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SignalProducer+SingleCallback.swift"; sourceTree = "<group>"; };
+		436310251C4465F600851F5E /* SignalProducer+DoubleCallbacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SignalProducer+DoubleCallbacks.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				436310121C4458D200851F5E /* Producerify.h */,
-				436310231C445A6800851F5E /* Producerify.swift */,
+				436310251C4465F600851F5E /* SignalProducer+DoubleCallbacks.swift */,
+				436310231C445A6800851F5E /* SignalProducer+SingleCallback.swift */,
 				436310141C4458D200851F5E /* Info.plist */,
 			);
 			path = Producerify;
@@ -149,7 +152,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				436310241C445A6800851F5E /* Producerify.swift in Sources */,
+				436310241C445A6800851F5E /* SignalProducer+SingleCallback.swift in Sources */,
+				436310261C4465F600851F5E /* SignalProducer+DoubleCallbacks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +312,7 @@
 				436310191C4458D200851F5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
