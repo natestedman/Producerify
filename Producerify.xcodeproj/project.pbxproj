@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		436310131C4458D200851F5E /* Producerify.h in Headers */ = {isa = PBXBuildFile; fileRef = 436310121C4458D200851F5E /* Producerify.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		436310211C445A2300851F5E /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4363101F1C445A2300851F5E /* ReactiveCocoa.framework */; };
+		436310221C445A2300851F5E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436310201C445A2300851F5E /* Result.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4363100F1C4458D200851F5E /* Producerify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Producerify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		436310121C4458D200851F5E /* Producerify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Producerify.h; sourceTree = "<group>"; };
 		436310141C4458D200851F5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4363101F1C445A2300851F5E /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		436310201C445A2300851F5E /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,6 +25,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				436310211C445A2300851F5E /* ReactiveCocoa.framework in Frameworks */,
+				436310221C445A2300851F5E /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -31,6 +37,7 @@
 			isa = PBXGroup;
 			children = (
 				436310111C4458D200851F5E /* Producerify */,
+				4363101A1C4459CB00851F5E /* Frameworks */,
 				436310101C4458D200851F5E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +57,15 @@
 				436310141C4458D200851F5E /* Info.plist */,
 			);
 			path = Producerify;
+			sourceTree = "<group>";
+		};
+		4363101A1C4459CB00851F5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4363101F1C445A2300851F5E /* ReactiveCocoa.framework */,
+				436310201C445A2300851F5E /* Result.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +246,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Producerify/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -248,6 +268,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Producerify/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
