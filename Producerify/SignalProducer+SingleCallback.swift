@@ -22,16 +22,7 @@ extension SignalProducer
     public init(callback: ((Value, Error?) -> ()) -> ())
     {
         self.init({ observer, _ in
-            callback({ value, maybeError in
-                if let error = maybeError
-                {
-                    observer.sendFailed(error)
-                }
-                else
-                {
-                    observer.sendCompleted()
-                }
-            })
+            callback(SignalProducer.callback(observer))
         })
     }
 
@@ -44,17 +35,7 @@ extension SignalProducer
     public init<A>(callback: (A, (Value, Error?) -> ()) -> (), _ a: A)
     {
         self.init({ observer, _ in
-            callback(a, { value, maybeError in
-                if let error = maybeError
-                {
-                    observer.sendFailed(error)
-                }
-                else
-                {
-                    observer.sendNext(value)
-                    observer.sendCompleted()
-                }
-            })
+            callback(a, SignalProducer.callback(observer))
         })
     }
 
@@ -68,17 +49,7 @@ extension SignalProducer
     public init<A, B>(callback: (A, B, (Value, Error?) -> ()) -> (), _ a: A, _ b: B)
     {
         self.init({ observer, _ in
-            callback(a, b, { value, maybeError in
-                if let error = maybeError
-                {
-                    observer.sendFailed(error)
-                }
-                else
-                {
-                    observer.sendNext(value)
-                    observer.sendCompleted()
-                }
-            })
+            callback(a, b, SignalProducer.callback(observer))
         })
     }
 
@@ -93,17 +64,7 @@ extension SignalProducer
     public init<A, B, C>(callback: (A, B, C, (Value, Error?) -> ()) -> (), _ a: A, _ b: B, _ c: C)
     {
         self.init({ observer, _ in
-            callback(a, b, c, { value, maybeError in
-                if let error = maybeError
-                {
-                    observer.sendFailed(error)
-                }
-                else
-                {
-                    observer.sendNext(value)
-                    observer.sendCompleted()
-                }
-            })
+            callback(a, b, c, SignalProducer.callback(observer))
         })
     }
 
@@ -119,17 +80,7 @@ extension SignalProducer
     public init<A, B, C, D>(callback: (A, B, C, D, (Value, Error?) -> ()) -> (), _ a: A, _ b: B, _ c: C, _ d: D)
     {
         self.init({ observer, _ in
-            callback(a, b, c, d, { value, maybeError in
-                if let error = maybeError
-                {
-                    observer.sendFailed(error)
-                }
-                else
-                {
-                    observer.sendNext(value)
-                    observer.sendCompleted()
-                }
-            })
+            callback(a, b, c, d, SignalProducer.callback(observer))
         })
     }
 
@@ -146,17 +97,29 @@ extension SignalProducer
     public init<A, B, C, D, E>(callback: (A, B, C, D, E, (Value, Error?) -> ()) -> (), _ a: A, _ b: B, _ c: C, _ d: D, _ e: E)
     {
         self.init({ observer, _ in
-            callback(a, b, c, d, e, { value, maybeError in
-                if let error = maybeError
-                {
-                    observer.sendFailed(error)
-                }
-                else
-                {
-                    observer.sendNext(value)
-                    observer.sendCompleted()
-                }
-            })
+            callback(a, b, c, d, e, SignalProducer.callback(observer))
         })
+    }
+
+    // MARK: - Utilities
+
+    /**
+    Produces a callback function, using the specified observer.
+
+    - parameter observer: The observer to send events to.
+    */
+    private static func callback(observer: Observer<Value, Error>) -> (Value, Error?) -> ()
+    {
+        return { value, maybeError in
+            if let error = maybeError
+            {
+                observer.sendFailed(error)
+            }
+            else
+            {
+                observer.sendNext(value)
+                observer.sendCompleted()
+            }
+        }
     }
 }

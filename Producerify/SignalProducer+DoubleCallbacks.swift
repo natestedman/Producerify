@@ -22,15 +22,7 @@ extension SignalProducer
     public init(callback: (Value -> (), Error -> ()) -> ())
     {
         self.init({ observer, _ in
-            callback(
-                { value in
-                    observer.sendNext(value)
-                    observer.sendCompleted()
-                },
-                { error in
-                    observer.sendFailed(error)
-                }
-            )
+            callback(SignalProducer.callbackValue(observer), observer.sendFailed)
         })
     }
 
@@ -43,15 +35,7 @@ extension SignalProducer
     public init<A>(callback: (A, Value -> (), Error -> ()) -> (), _ a: A)
     {
         self.init({ observer, _ in
-            callback(a,
-                { value in
-                    observer.sendNext(value)
-                    observer.sendCompleted()
-                },
-                { error in
-                    observer.sendFailed(error)
-                }
-            )
+            callback(a, SignalProducer.callbackValue(observer), observer.sendFailed)
         })
     }
 
@@ -65,15 +49,7 @@ extension SignalProducer
     public init<A, B>(callback: (A, B, Value -> (), Error -> ()) -> (), _ a: A, _ b: B)
     {
         self.init({ observer, _ in
-            callback(a, b,
-                { value in
-                    observer.sendNext(value)
-                    observer.sendCompleted()
-                },
-                { error in
-                    observer.sendFailed(error)
-                }
-            )
+            callback(a, b, SignalProducer.callbackValue(observer), observer.sendFailed)
         })
     }
 
@@ -88,15 +64,7 @@ extension SignalProducer
     public init<A, B, C>(callback: (A, B, C, Value -> (), Error -> ()) -> (), _ a: A, _ b: B, _ c: C)
     {
         self.init({ observer, _ in
-            callback(a, b, c,
-                { value in
-                    observer.sendNext(value)
-                    observer.sendCompleted()
-                },
-                { error in
-                    observer.sendFailed(error)
-                }
-            )
+            callback(a, b, c, SignalProducer.callbackValue(observer), observer.sendFailed)
         })
     }
 
@@ -112,15 +80,7 @@ extension SignalProducer
     public init<A, B, C, D>(callback: (A, B, C, D, Value -> (), Error -> ()) -> (), _ a: A, _ b: B, _ c: C, _ d: D)
     {
         self.init({ observer, _ in
-            callback(a, b, c, d,
-                { value in
-                    observer.sendNext(value)
-                    observer.sendCompleted()
-                },
-                { error in
-                    observer.sendFailed(error)
-                }
-            )
+            callback(a, b, c, d, SignalProducer.callbackValue(observer), observer.sendFailed)
         })
     }
 
@@ -137,15 +97,22 @@ extension SignalProducer
     public init<A, B, C, D, E>(callback: (A, B, C, D, E, Value -> (), Error -> ()) -> (), _ a: A, _ b: B, _ c: C, _ d: D, _ e: E)
     {
         self.init({ observer, _ in
-            callback(a, b, c, d, e,
-                { value in
-                    observer.sendNext(value)
-                    observer.sendCompleted()
-                },
-                { error in
-                    observer.sendFailed(error)
-                }
-            )
+            callback(a, b, c, d, e, SignalProducer.callbackValue(observer), observer.sendFailed)
         })
+    }
+
+    // MARK: - Utilities
+
+    /**
+    Produces a `Value` callback function, using the specified observer.
+
+    - parameter observer: The observer to send events to.
+    */
+    private static func callbackValue(observer: Observer<Value, Error>) -> Value -> ()
+    {
+        return { value in
+            observer.sendNext(value)
+            observer.sendCompleted()
+        }
     }
 }
