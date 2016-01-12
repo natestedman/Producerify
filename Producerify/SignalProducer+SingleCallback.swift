@@ -10,6 +10,7 @@
 
 import ReactiveCocoa
 
+/// `SignalProducer` is extended with new initializers to wrap functions taking callback parameters.
 extension SignalProducer
 {
     // MARK: - Single Callback Functions
